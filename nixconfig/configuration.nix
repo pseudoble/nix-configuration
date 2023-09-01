@@ -21,6 +21,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Enable experimental features
+  nix.settings.experimental-features = "nix-command flakes";
 
   security.rtkit.enable = true;
 
@@ -46,7 +49,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  
+  services.openssh.settings.PermitRootLogin = "no";
+
   programs.fish.enable = true;
 
   # List packages installed in system profile. To search, run:

@@ -61,4 +61,15 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+
+  --use {
+  --  'nvim-tree/nvim-tree.lua',
+  --  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  --}
+  use 'mfussenegger/nvim-dap' 
+
+  use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
+
+  use 'github/copilot.vim'
+
 end)
