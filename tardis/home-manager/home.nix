@@ -7,6 +7,7 @@
     ./zsh.nix
     ./tmux.nix
     ./git.nix
+    ./i3.nix
   ];
 
   nixpkgs = {
