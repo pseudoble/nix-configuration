@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 {
   imports =
     [ 
-      <home-manager/nixos>
-      ./hardware.nix
+      ./hardware-configuration.nix
       ./bootloader.nix
       ./bluetooth.nix
       ./network.nix
@@ -16,14 +15,34 @@
       ./users.nix
       ./x11.nix
       ./fonts.nix
-];
-
+  ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  
-  # Enable experimental features
-  nix.settings.experimental-features = "nix-command flakes";
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+    config.allowUnfree = true;
+  };
+
+  nix = {
+    # This will add each flake input as a registry
+    # To make nix3 commands consistent with your flake
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+    }; 
+  };
 
   security.rtkit.enable = true;
 
@@ -51,8 +70,12 @@
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
 
-  programs.fish.enable = true;
+  # Virtualization
+  virtualisation.libvirtd.enable = true;
 
+  #programs.fish.enable = true;
+  programs.zsh.enable = true;
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -62,22 +85,17 @@
     pcmanfm
     pavucontrol
     bluez
+    stow
+    
+    qemu
+    libvirt
+    virt-manager
+    qemu_kvm
+
     home-manager
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  programs.dconf.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
