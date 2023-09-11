@@ -8,6 +8,7 @@
     ./tmux.nix
     ./git.nix
     ./i3.nix
+    ./nushell.nix
   ];
 
   nixpkgs = {
@@ -52,6 +53,7 @@
     zsh
     zsh-powerlevel10k
     tmux
+    nushell
 
     # Notes
     logseq
