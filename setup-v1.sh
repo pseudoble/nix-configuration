@@ -2,6 +2,7 @@
 
 cd ~/.nixos/tardis-virtual
 
+echo "Running setup with the following arguments: [$@]"
 # Check if --generate-config passed
 if [ "$1" == "--copy-config" ]; then
 #    sudo nixos-generate-config --root ./nixos
