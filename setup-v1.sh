@@ -4,7 +4,7 @@ cd ~/.nixos/tardis-virtual
 
 echo "Running setup with the following arguments: [$@]"
 # Check if --generate-config passed
-if [[ "$@" == *"--copy-config"* ]; then
+if [[ "$@" == *"--copy-config"* ]]; then
   if [ -f "/etc/nixos/configuration.nix" ]; then
     echo "Copying /etc/nixos/configuration.nix to ./nixos"
     cp /etc/nixos/configuration.nix ./nixos
