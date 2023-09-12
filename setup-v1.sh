@@ -24,5 +24,4 @@ fi
 
 sudo nixos-rebuild switch --flake .#$FLAKE_NAME
 home-manager switch --flake .#cjosephs@$FLAKE_NAME
-
-echo "Reopen your terminal to see changes"
+sudo systemctl start display-manager.service
