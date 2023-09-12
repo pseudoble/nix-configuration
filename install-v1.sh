@@ -15,7 +15,7 @@ curl -L $ZIP_URL -o $TMP_DIR/nix-config.zip
 
 # Unzip into ~/.nixos
 unzip $TMP_DIR/nix-config.zip -d $TMP_DIR 
-mv $TMP_DIR/nix-configuration-$BRANCH ~/.nixos
+mv $TMP_DIR/nix-configuration-$BRANCH/* ~/.nixos
 
 cd ~/.nixos
 
