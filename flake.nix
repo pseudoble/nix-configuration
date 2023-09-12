@@ -9,6 +9,12 @@
         '';
         path = ./tardis;
       };
+      tardis-virtual = {
+        description = ''
+          My virtual machine configuration
+        '';
+        path = ./tardis-virtual;
+      };
     };
   };
 }
