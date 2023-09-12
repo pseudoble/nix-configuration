@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/.nixos/tardis 
+cd ~/.nixos/tardis-virtual
 
 # Check if --generate-config passed
 if [ "$1" == "--copy-config" ]; then
@@ -9,8 +9,7 @@ if [ "$1" == "--copy-config" ]; then
 fi
 
 
-sudo nixos-rebuild switch --flake .#nixos
-home-manager switch --flake .#cjosephs@nixos
+sudo nixos-rebuild switch --flake .#tardis-virtual
+home-manager switch --flake .#cjosephs@tardis-virtual
 
-echo "Repoen your terminal to see changes"
-
+echo "Reopen your terminal to see changes"
