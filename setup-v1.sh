@@ -4,9 +4,15 @@ cd ~/.nixos/tardis-virtual
 
 echo "Running setup with the following arguments: [$@]"
 # Check if --generate-config passed
-if [ "$1" == "--copy-config" ]; then
+if [[ "$@" == *"--copy-config"* ]; then
+  if [ -f "/etc/nixos/configuration.nix" ]; then
+    echo "Copying /etc/nixos/configuration.nix to ./nixos"
+    cp /etc/nixos/configuration.nix ./nixos
+  else
+    echo "No /etc/nixos/configuration.nix found"
+    exit 1
+  fi
 #    sudo nixos-generate-config --root ./nixos
-    cp /etc/nixos/hardware-configuration.nix ./nixos
 fi
 
 
