@@ -1,9 +1,7 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
-{
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./alacritty.nix
-    ./nvim.nix
+    #./nvim.nix
     ./zsh.nix
     ./tmux.nix
     ./git.nix
@@ -37,23 +35,25 @@
     slack
     discord
     evolution
-    firefox
 
     # Development
-    neovim
-    gh
+    # neovim
     git
+    gh
     vscode
-    gcc
-    nodejs
-    coursier
-    dotnet-sdk_7
+    # gcc
+    # nodejs
+    # coursier
+    # dotnet-sdk_7
+    direnv
 
     # Shell
+    kitty
     alacritty
     zsh
     zsh-powerlevel10k
     tmux
+    zellij
     nushell
 
     # Notes
@@ -68,6 +68,9 @@
     bat
     thefuck
     exa
+    timer
+    speechd
+    feh
 
     # Dependencies
     xorg.libX11
@@ -90,6 +93,7 @@
     fira-code
     fira-code-symbols
 
+    steam
   ];
 
   fonts.fontconfig.enable = true;

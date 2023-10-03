@@ -9,6 +9,12 @@
         '';
         path = ./tardis;
       };
+      tardis-minimal = {
+        description = ''
+          My desktop configuration
+        '';
+        path = ./tardis-minimal;
+      }; 
       tardis-virtual = {
         description = ''
           My virtual machine configuration
