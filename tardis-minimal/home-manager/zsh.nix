@@ -6,10 +6,10 @@ let
 in
 {
   programs.zsh = {
-     enable = true;
+    enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
     initExtra = ''
       [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}

@@ -67,7 +67,8 @@
     gnome.file-roller
     bat
     thefuck
-    exa
+    #exa
+    eza
     timer
     speechd
     feh
