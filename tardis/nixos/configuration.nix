@@ -69,7 +69,11 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
+  services.gnome.gnome-keyring.enable = true;
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="4653", ATTRS{idProduct}=="0001", MODE="0666" 
+  '';
   # Virtualization
   virtualisation.libvirtd.enable = true;
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FLAKE_NAME=tardis-virtual
+FLAKE_NAME="${FLAKE_NAME:-defaultFlakeName}"
 
 FLAKE_PATH_BASE=$HOME/.nixos/$FLAKE_NAME
 CONFIG_PATH_BASE=$FLAKE_PATH_BASE/nixos
