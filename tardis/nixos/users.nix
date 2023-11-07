@@ -11,5 +11,10 @@
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
+
+  nix.settings.trusted-users = [ "root" "cjosephs" ];
+
+  nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
+
 }
 

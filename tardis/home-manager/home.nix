@@ -1,7 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./alacritty.nix
-    #./nvim.nix
     ./zsh.nix
     ./tmux.nix
     ./git.nix
@@ -37,10 +36,11 @@
     evolution
 
     # Development
-    # neovim
     git
     gh
     vscode
+    go
+    gopls
     # gcc
     # nodejs
     # coursier
@@ -48,7 +48,7 @@
     direnv
 
     # Shell
-    kitty
+    # kitty
     alacritty
     zsh
     zsh-powerlevel10k
@@ -67,7 +67,6 @@
     gnome.file-roller
     bat
     thefuck
-    #exa
     eza
     timer
     speechd
@@ -89,12 +88,24 @@
     gnupg
     prusa-slicer
     cura
+    flameshot
+    gthumb
+    remmina
 
     # Fonts
     fira-code
     fira-code-symbols
 
+    # Gaming
+    wineWowPackages.full
+    winetricks
+    protontricks
+    lutris
     steam
+    prismlauncher
+
+    # Work 
+    teams-for-linux
   ];
 
   fonts.fontconfig.enable = true;
