@@ -36,6 +36,7 @@
     evolution
 
     # Development
+    arduino
     git
     gh
     vscode
@@ -48,7 +49,7 @@
     direnv
 
     # Shell
-    # kitty
+    kitty
     alacritty
     zsh
     zsh-powerlevel10k
@@ -71,6 +72,8 @@
     timer
     speechd
     feh
+    tealdeer
+    i3lock
 
     # Dependencies
     xorg.libX11
@@ -78,8 +81,10 @@
     mesa
     zlib
     glib
+    glibc
     icu
-    
+    protonup-qt
+
     # Silly
     lolcat
     fortune
@@ -91,10 +96,12 @@
     flameshot
     gthumb
     remmina
-
+    vial
+    
     # Fonts
     fira-code
     fira-code-symbols
+    monaspace
 
     # Gaming
     wineWowPackages.full

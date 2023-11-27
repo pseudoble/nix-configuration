@@ -6,8 +6,7 @@
   users.users.cjosephs = {
     isNormalUser = true;
     description = "Charles Josephs";
-    extraGroups = [ "networkmanager" "wheel" "audio" "pulse-access" "libvirtd" "uucp" "network" "fuse"];
-    # shell = pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" "audio" "pulse-access" "libvirtd" "uucp" "network" "fuse" "dialout" "tty" ];
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };

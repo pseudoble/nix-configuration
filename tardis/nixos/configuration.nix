@@ -64,16 +64,35 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  hardware.opengl.driSupport = true;
+  # For 32 bit applications
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    rocm-opencl-icd
+    rocm-opencl-runtime
+  ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
   services.gnome.gnome-keyring.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.cups-brother-hll2350dw ];
+  };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="4653", ATTRS{idProduct}=="0001", MODE="0666" 
-  '';
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "vial-udev-rule";
+      text = ''
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+      '';
+      destination = "/etc/udev/rules.d/99-vial.rules";
+    })
+  ];
+
   # Virtualization
   virtualisation.libvirtd.enable = true;
 
@@ -90,14 +109,19 @@
     pavucontrol
     bluez
     stow
-    
+
     qemu
     libvirt
     virt-manager
     qemu_kvm
 
+    mesa
     xorg.xkill
-
+    vulkan-tools
+    vulkan-headers
+    vulkan-loader
+    
+    appimage-run
     home-manager
 
   ];

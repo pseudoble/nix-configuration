@@ -9,4 +9,5 @@
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "fuse" ];
+  # security.fsck.auto = false;
 }
