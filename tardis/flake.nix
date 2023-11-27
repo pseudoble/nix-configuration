@@ -67,7 +67,7 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = forAllSystems (system:
-        let pkgs = nixpkgs.legacypackages.${system};
+        let pkgs = nixpkgs.legacyPackages.${system};
         in {
         "cjosephs@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -77,6 +77,7 @@
             ./home-manager/home.nix
           ];
         };
-      };
+      });
     };
+  
 }
