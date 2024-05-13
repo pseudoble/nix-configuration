@@ -74,6 +74,7 @@
     feh
     tealdeer
     i3lock
+    appimage-run
 
     # Dependencies
     xorg.libX11
@@ -97,7 +98,8 @@
     gthumb
     remmina
     vial
-    
+    upscayl
+
     # Fonts
     fira-code
     fira-code-symbols
@@ -111,8 +113,6 @@
     steam
     prismlauncher
 
-    # Work 
-    teams-for-linux
   ];
 
   fonts.fontconfig.enable = true;

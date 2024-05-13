@@ -123,7 +123,7 @@
     
     appimage-run
     home-manager
-
+    powershell
   ];
 
   programs.dconf.enable = true;

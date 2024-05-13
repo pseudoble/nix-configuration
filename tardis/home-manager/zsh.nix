@@ -1,7 +1,7 @@
 {config, lib, pkgs, ...}:
    
 let 
-  p10kTheme = ./zsh/.p10k.zsh;
+  p10kTheme = ./zsh/p10k.zsh;
   pomodoroScript = ./zsh/pomodoro.sh;
 in
 {
