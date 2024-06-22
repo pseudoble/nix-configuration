@@ -124,13 +124,19 @@
     appimage-run
     home-manager
     powershell
+
+    obs-studio
+    obs-studio-plugins.obs-freeze-filter
+    v4l-utils
+
+    linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   programs.dconf.enable = true;
 
   
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

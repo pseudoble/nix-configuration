@@ -17,6 +17,10 @@
     driSupport32Bit = true;
   };
 
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
+  
   services.xserver = {
     enable = true;
 
@@ -26,9 +30,6 @@
       xterm.enable = false;
     };
 
-    displayManager = {
-      defaultSession = "none+i3";
-    };
 
     windowManager.i3 = {
       enable = true;
@@ -38,7 +39,7 @@
       ];
     };
 
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 }
