@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  hardware.opengl = {
+  hardware.graphics = {
     extraPackages = with pkgs; [
       amdvlk
       rocm-opencl-icd
@@ -13,8 +13,7 @@
       driversi686Linux.amdvlk
     ];
 
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   services.displayManager = {

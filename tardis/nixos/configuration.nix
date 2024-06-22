@@ -64,10 +64,9 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  hardware.opengl.driSupport = true;
   # For 32 bit applications
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages = with pkgs; [
     rocm-opencl-icd
     rocm-opencl-runtime
   ];
