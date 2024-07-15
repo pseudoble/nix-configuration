@@ -34,6 +34,7 @@
     slack
     discord
     evolution
+    vlc 
 
     # Development
     arduino
@@ -47,6 +48,9 @@
     # coursier
     # dotnet-sdk_7
     direnv
+    jetbrains.idea-ultimate
+    zoom-us
+    zed-editor
 
     # Shell
     kitty
@@ -65,7 +69,8 @@
     xclip
     zip 
     unzip
-    gnome.file-roller
+    
+    # gnome.file-roller
     bat
     thefuck
     eza
@@ -75,6 +80,7 @@
     tealdeer
     i3lock
     appimage-run
+    filezilla
 
     # Dependencies
     xorg.libX11
@@ -99,6 +105,7 @@
     remmina
     vial
     upscayl
+    mob
 
     # Fonts
     fira-code
