@@ -1,10 +1,10 @@
 # sound.nix
 
 {
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
+  # sound = {
+  #   enable = true;
+  #   mediaKeys.enable = true;
+  # };
 
   hardware.pulseaudio = {
     enable = true;
