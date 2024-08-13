@@ -99,7 +99,7 @@
     # Misc
     gnupg
     prusa-slicer
-    cura
+    #cura
     flameshot
     gthumb
     remmina
