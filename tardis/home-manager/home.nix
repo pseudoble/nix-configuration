@@ -39,6 +39,7 @@
     # Development
     arduino
     git
+    git-lfs
     gh
     vscode
     go
