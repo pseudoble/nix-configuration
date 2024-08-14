@@ -49,7 +49,7 @@
     # coursier
     # dotnet-sdk_7
     direnv
-    jetbrains.idea-ultimate
+    jetbrains-toolbox
     zoom-us
     zed-editor
 
