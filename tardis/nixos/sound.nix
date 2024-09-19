@@ -1,16 +1,16 @@
 # sound.nix
-
 {
-  # sound = {
-  #   enable = true;
-  #   mediaKeys.enable = true;
-  # };
+  # Disable PulseAudio
+  hardware.pulseaudio.enable = false;
 
-  hardware.pulseaudio = {
+  # Enable PipeWire
+  services.pipewire = {
     enable = true;
-    extraConfig = ''
-      default-server = unix:/run/user/1000/pulse/native
-    '';
-    support32Bit = true;
+    pulse.enable = true;  # Enable PulseAudio emulation
+    alsa.enable = true;   # Enable ALSA for compatibility
+    jack.enable = true;   # Optional: Enable JACK if needed for advanced audio setups
   };
+
+  # Optional: Enable real-time priority for PipeWire processes
+  security.rtkit.enable = true;
 }

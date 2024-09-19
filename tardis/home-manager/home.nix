@@ -52,6 +52,7 @@
     jetbrains-toolbox
     zoom-us
     zed-editor
+    postman
 
     # Shell
     kitty
@@ -70,6 +71,8 @@
     xclip
     zip 
     unzip
+    xarchiver
+    zenity
     
     # gnome.file-roller
     bat

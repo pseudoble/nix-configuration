@@ -12,6 +12,7 @@ in
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
     initExtra = ''
+      export PATH=$HOME/.local/bin:$PATH
       [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
       source ${pomodoroScript}
     '';

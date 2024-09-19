@@ -5,6 +5,8 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
   imports =
     [ 
       ./hardware-configuration.nix
@@ -128,7 +130,10 @@
     obs-studio-plugins.obs-freeze-filter
     v4l-utils
 
-    linuxKernel.packages.linux_6_6.v4l2loopback
+
+    libva
+
+    #linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   programs.dconf.enable = true;
