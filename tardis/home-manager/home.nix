@@ -95,6 +95,8 @@
     glibc
     icu
     protonup-qt
+    picom
+    nitrogen
 
     # Silly
     lolcat
@@ -125,6 +127,8 @@
     prismlauncher
 
   ];
+  
+  services.picom.enable = true;
 
   fonts.fontconfig.enable = true;
 
