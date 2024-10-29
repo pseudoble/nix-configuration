@@ -128,7 +128,8 @@
     lutris
     steam
     prismlauncher
-    cockatrice
+    cockatrice  # MTG
+    xmage       # MTG
   ];
   
   services.picom.enable = true;
