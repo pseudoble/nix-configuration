@@ -43,7 +43,14 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-    }; 
+    };
+
+    # Add these new garbage collection settings
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   security.rtkit.enable = true;
@@ -126,8 +133,6 @@
     home-manager
     powershell
 
-    obs-studio
-    obs-studio-plugins.obs-freeze-filter
     v4l-utils
 
 

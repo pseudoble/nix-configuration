@@ -6,6 +6,7 @@
     ./git.nix
     ./i3.nix
     ./nushell.nix
+    ./obs.nix
   ];
 
   nixpkgs = {
@@ -40,6 +41,7 @@
     arduino
     git
     git-lfs
+    git-credential-manager
     gh
     vscode
     go
@@ -85,6 +87,7 @@
     i3lock
     appimage-run
     filezilla
+    audacity
 
     # Dependencies
     xorg.libX11
@@ -125,7 +128,7 @@
     lutris
     steam
     prismlauncher
-
+    cockatrice
   ];
   
   services.picom.enable = true;
