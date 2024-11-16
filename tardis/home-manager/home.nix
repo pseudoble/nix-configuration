@@ -7,6 +7,7 @@
     ./i3.nix
     ./nushell.nix
     ./obs.nix
+    ./mime.nix
   ];
 
   nixpkgs = {
@@ -55,6 +56,7 @@
     zoom-us
     zed-editor
     postman
+    steam-run
 
     # Shell
     kitty
@@ -66,7 +68,7 @@
     nushell
 
     # Notes
-    logseq
+    # logseq - depends on outdateed electron
 
     # Common Utils
     htop
@@ -75,6 +77,7 @@
     unzip
     xarchiver
     zenity
+    usbutils
     
     # gnome.file-roller
     bat
@@ -82,12 +85,14 @@
     eza
     timer
     speechd
+    geeqie
     feh
     tealdeer
     i3lock
     appimage-run
     filezilla
     audacity
+    python310Full
 
     # Dependencies
     xorg.libX11
@@ -115,6 +120,7 @@
     vial
     upscayl
     mob
+    easyeffects
 
     # Fonts
     fira-code
@@ -126,13 +132,17 @@
     winetricks
     protontricks
     lutris
-    steam
+    heroic
     prismlauncher
     cockatrice  # MTG
     xmage       # MTG
   ];
   
   services.picom.enable = true;
+
+  services.blueman-applet = {
+    enable = true;
+  };
 
   fonts.fontconfig.enable = true;
 

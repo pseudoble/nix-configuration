@@ -154,8 +154,8 @@ set $ws3 3:code
 set $ws4 4:notes
 set $ws5 5
 set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws7 7:streaming
+set $ws8 8:gamez
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -426,7 +426,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# Set the default file manager to pcmanfm
-exec --no-startup-id xdg-mime default pcmanfm.desktop inode/directory
-

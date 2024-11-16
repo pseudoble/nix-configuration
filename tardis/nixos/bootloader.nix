@@ -10,7 +10,7 @@
 
   boot.kernelModules = [ "fuse" "v4l2loopback" ];
   
-  boot.extraModulePackages = [ pkgs.linuxPackages_latest.v4l2loopback ];
+  boot.extraModulePackages = [ pkgs.linux-firmware pkgs.linuxPackages_latest.v4l2loopback ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   # security.fsck.auto = false;
