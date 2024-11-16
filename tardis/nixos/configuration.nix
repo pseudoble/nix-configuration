@@ -17,6 +17,7 @@
       ./users.nix
       ./x11.nix
       ./fonts.nix
+      # ./vr.nix
   ];
 
   # Allow unfree packages
@@ -73,12 +74,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # For 32 bit applications
-  hardware.graphics.enable32Bit = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    rocm-opencl-icd
-    rocm-opencl-runtime
-  ];
 
   # List services that you want to enable:
 
@@ -142,8 +137,13 @@
   ];
 
   programs.dconf.enable = true;
-
   
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server
+  };
+
   # virtualisation.virtualbox.host.enable = true;
   # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 

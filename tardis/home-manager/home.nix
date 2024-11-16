@@ -8,6 +8,7 @@
     ./nushell.nix
     ./obs.nix
     ./mime.nix
+    # ./vr.nix
   ];
 
   nixpkgs = {

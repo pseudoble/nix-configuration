@@ -4,15 +4,7 @@
 
 {
   hardware.graphics = {
-    extraPackages = with pkgs; [
-      # amdvlk
-      rocm-opencl-icd
-      rocm-opencl-runtime
-    ];
-    # extraPackages32 = with pkgs; [
-    #   driversi686Linux.amdvlk
-    # ];
-
+    enable = true;
     enable32Bit = true;
   };
 
