@@ -67,6 +67,7 @@
     tmux
     zellij
     nushell
+    xsel
 
     # Notes
     # logseq - depends on outdateed electron
@@ -94,6 +95,7 @@
     filezilla
     audacity
     python310Full
+    python310Packages.pip
 
     # Dependencies
     xorg.libX11

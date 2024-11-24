@@ -85,16 +85,43 @@
     enable = true;
     drivers = [ pkgs.cups-brother-hll2350dw ];
   };
+  
+  services.udev = {
+    enable = true;
 
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "vial-udev-rule";
-      text = ''
-        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-      '';
-      destination = "/etc/udev/rules.d/99-vial.rules";
-    })
-  ];
+    # Use `packages` to define udev rules declaratively
+    packages = [
+      # Android udev rules
+      (pkgs.writeTextFile {
+        name = "android-udev-rules";
+        text = ''
+          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0186", MODE="0666", GROUP="plugdev"
+          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", MODE="0666", GROUP="plugdev"
+          SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="plugdev"
+        '';
+        destination = "/etc/udev/rules.d/51-android.rules";
+      })
+
+      # Oculus Quest 2 udev rule
+      (pkgs.writeTextFile {
+        name = "oculus-udev-rule";
+        text = ''
+          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0183", MODE="0666", GROUP="plugdev"
+        '';
+        destination = "/etc/udev/rules.d/99-oculus.rules";
+      })
+
+      # Vial udev rule
+      (pkgs.writeTextFile {
+        name = "vial-udev-rule";
+        text = ''
+          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+        '';
+        destination = "/etc/udev/rules.d/99-vial.rules";
+      })
+    ];
+  };
+
 
   # Virtualization
   virtualisation.libvirtd.enable = true;
@@ -137,6 +164,8 @@
   ];
 
   programs.dconf.enable = true;
+
+  programs.adb.enable = true;
   
   programs.steam = {
     enable = true;

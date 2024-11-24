@@ -6,7 +6,23 @@
   users.users.cjosephs = {
     isNormalUser = true;
     description = "Charles Josephs";
-    extraGroups = [ "networkmanager" "wheel" "audio" "pulse-access" "libvirtd" "uucp" "network" "fuse" "dialout" "tty" "input" "video" "render" ];
+    extraGroups = [
+       "networkmanager" 
+       "wheel" 
+       "audio" 
+       "pulse-access" 
+       "libvirtd" 
+       "uucp" 
+       "network" 
+       "fuse" 
+       "dialout" 
+       "tty" 
+       "input" 
+       "video" 
+       "render"
+       "plugdev" 
+       "adbusers"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
