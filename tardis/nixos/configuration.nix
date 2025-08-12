@@ -6,7 +6,8 @@
 
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+  programs.nix-ld.enable = true;
+
   imports =
     [ 
       ./hardware-configuration.nix
@@ -17,7 +18,7 @@
       ./users.nix
       ./x11.nix
       ./fonts.nix
-      # ./vr.nix
+      ./vr.nix
   ];
 
   # Allow unfree packages
@@ -83,9 +84,26 @@
   services.gnome.gnome-keyring.enable = true;
   services.printing = {
     enable = true;
-    drivers = [ pkgs.cups-brother-hll2350dw ];
+    # drivers = [ pkgs.cups-brother-hll2350dw ];
   };
   
+  services.avahi = {
+    enable = true;        # This enables the Avahi daemon
+    nssmdns4 = true;       # This enables mDNS for .local name resolution via NSS
+    openFirewall = true;  # This will open UDP port 5353 in your firewall if networking.firewall.enable is true
+    # If you want your NixOS machine itself to be discoverable via mDNS, you might also add:
+    # publish = {
+    #   enable = true;
+    #   domain = true;
+    #   hinfo = true;
+    #   userServices = true;
+    #   workstation = true;
+    # };
+  };
+
+  xdg.portal.enable = true;
+  services.flatpak.enable = true;
+
   services.udev = {
     enable = true;
 
@@ -157,11 +175,15 @@
 
     v4l-utils
 
+    brlaser
 
     libva
 
+    linuxKernel.packages.linux_6_15.xpadneo
     #linuxKernel.packages.linux_6_6.v4l2loopback
   ];
+
+  hardware.xpadneo.enable = true;
 
   programs.dconf.enable = true;
 
@@ -169,7 +191,7 @@
   
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports for Steam Remote Play
+    remotePlay.openFirewall = true; # Open ports for 2 Remote Play
     dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server
   };
 

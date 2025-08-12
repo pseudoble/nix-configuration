@@ -1,7 +1,7 @@
 # sound.nix
 {
   # Disable PulseAudio
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Enable PipeWire
   services.pipewire = {

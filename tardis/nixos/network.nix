@@ -17,5 +17,9 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  networking.firewall.allowedTCPPorts = [ 4455 ];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 7777 4455 25565 ];
+    allowedUDPPorts = [ 9944 7777 25565 ];
+  };
 }

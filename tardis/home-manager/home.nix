@@ -32,13 +32,23 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    polkit_gnome
+    alvr
+    sidequest
+    libva
+    libva-utils
+    vulkan-loader
+    vulkan-tools
+    cudaPackages.cudatoolkit     
+    
     # Browsing and Communication
     vivaldi
     slack
     discord
-    evolution
-    vlc 
-
+    #evolution
+    vlc
+    system-config-printer
+    
     # Development
     arduino
     git
@@ -58,6 +68,27 @@
     zed-editor
     postman
     steam-run
+    godot_4
+    erlang_28
+    gleam
+    docker
+    scala-next
+    mill
+    ripgrep
+
+    jdk17
+    libGL
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXxf86vm
+    xorg.libXi
+    xorg.libXcursor
+    vulkan-loader
+    xorg.libxcb
+    xorg.libXrender
+    xorg.libXfixes
+    xorg.libXext
+    libxkbcommon
 
     # Shell
     kitty
@@ -70,20 +101,20 @@
     xsel
 
     # Notes
-    # logseq - depends on outdateed electron
+    logseq #- depends on outdateed electron
 
     # Common Utils
     htop
     xclip
-    zip 
+    zip
     unzip
     xarchiver
     zenity
     usbutils
-    
+    dunst
+    networkmanagerapplet
     # gnome.file-roller
     bat
-    thefuck
     eza
     timer
     speechd
@@ -94,8 +125,10 @@
     appimage-run
     filezilla
     audacity
-    python310Full
-    python310Packages.pip
+    #python310Full
+    #python310Packages.pip
+    nodejs_22 
+    yarn
 
     # Dependencies
     xorg.libX11
@@ -139,13 +172,21 @@
     prismlauncher
     cockatrice  # MTG
     xmage       # MTG
+
+    # Minecraft
+    glfw
+    openal
+    libpulseaudio
+    flite
+    stdenv.cc.cc.lib
   ];
   
+  home.sessionPath = [ "$HOME/.yarn/bin" ];
   services.picom.enable = true;
 
-  services.blueman-applet = {
-    enable = true;
-  };
+  # services.blueman-applet = {
+  #   enable = true;
+  # };
 
   fonts.fontconfig.enable = true;
 

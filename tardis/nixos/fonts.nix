@@ -4,6 +4,8 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    nerdfonts
+    #nerdfonts
+    nerd-fonts.monaspace
+    nerd-fonts.meslo-lg
   ];
 }

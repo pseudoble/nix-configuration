@@ -3,6 +3,13 @@
 { config, pkgs, ... }:
 
 {
+  security.polkit.enable = true;
+
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+  };
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -15,14 +22,14 @@
   services.xserver = {
     enable = true;
 
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = [ "nvidia" ];
 
     desktopManager = {
       xterm.enable = false;
     };
 
 
-    windowManager.i3 = {
+  windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
         i3status
