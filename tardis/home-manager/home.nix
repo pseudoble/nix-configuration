@@ -30,6 +30,9 @@
     homeDirectory = "/home/cjosephs";
   };
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     polkit_gnome
@@ -40,6 +43,11 @@
     vulkan-loader
     vulkan-tools
     cudaPackages.cudatoolkit     
+    
+    goxel
+    unityhub
+    # rustup
+    dotnetCorePackages.sdk_9_0-bin
     
     # Browsing and Communication
     vivaldi

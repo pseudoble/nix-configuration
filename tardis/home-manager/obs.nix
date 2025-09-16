@@ -12,7 +12,7 @@ in{
       obs-backgroundremoval
       obs-pipewire-audio-capture
       obs-freeze-filter
-      obs-vertical-canvas
+      # obs-vertical-canvas
       obs-vintage-filter
     ];
   };

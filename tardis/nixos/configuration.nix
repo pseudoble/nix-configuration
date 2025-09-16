@@ -20,7 +20,7 @@
       ./fonts.nix
       ./vr.nix
   ];
-
+  
   # Allow unfree packages
   nixpkgs = {
     overlays = [
