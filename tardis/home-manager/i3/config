@@ -30,18 +30,20 @@ set $out_left  HDMI-0             # left monitor
 
 # Workspaces
 # Names
-set $ws1 1:web
-set $ws2 2:coms
-set $ws3 3:code
-set $ws4 4:notes
-set $ws5 5
-set $ws6 6
-set $ws7 7:streaming
-set $ws8 8:gamez
+set $ws1 1:🌐
+set $ws2 2:💬
+set $ws3 3:📝
+set $ws4 4:💻
+set $ws5 5:{}
+set $ws6 6:📂
+set $ws7 7:🎥
+set $ws8 8:🎮
 
 # Pin specific workspaces to outputs
-workspace $ws2 output $out_left   # 2:coms → left HDMI
-workspace $ws4 output $out_left   # 4:notes → left HDMI
+workspace $ws1 output $out_left  
+workspace $ws2 output $out_left  
+workspace $ws3 output $out_left  
+workspace $ws4 output $out_left  
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
