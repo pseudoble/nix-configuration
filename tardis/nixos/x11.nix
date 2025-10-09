@@ -6,9 +6,21 @@
   security.polkit.enable = true;
 
   hardware.nvidia = {
-    open = true;
     modesetting.enable = true;
+
+    # Power management for laptops and desktops.
+    powerManagement.enable = true;
+    # Fine-grained power management can be unstable.
+    powerManagement.finegrained = false;
+
+    # Use the proprietary driver
+    open = false;
+
+    # Specify the NVIDIA driver package.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  hardware.opengl.enable = true;
 
   hardware.graphics = {
     enable = true;
