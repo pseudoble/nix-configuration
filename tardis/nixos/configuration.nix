@@ -102,6 +102,7 @@
   };
 
   xdg.portal.enable = true;
+  xdg.portal.config.common.default = "*";
   services.flatpak.enable = true;
 
   services.ollama = {
