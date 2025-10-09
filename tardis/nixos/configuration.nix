@@ -179,8 +179,8 @@
 
     libva
 
-    linuxKernel.packages.linux_6_15.xpadneo
-    #linuxKernel.packages.linux_6_6.v4l2loopback
+    # linuxKernel.packages.linux_6_15.xpadneo
+    # #linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   hardware.xpadneo.enable = true;
