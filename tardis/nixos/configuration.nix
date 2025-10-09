@@ -104,6 +104,12 @@
   xdg.portal.enable = true;
   services.flatpak.enable = true;
 
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+
+
   services.udev = {
     enable = true;
 
