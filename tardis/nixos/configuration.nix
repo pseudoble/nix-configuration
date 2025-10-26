@@ -110,7 +110,6 @@
     acceleration = "cuda";
   };
 
-
   services.udev = {
     enable = true;
 
@@ -182,7 +181,7 @@
 
     v4l-utils
 
-    brlaser
+    # brlaser
 
     libva
 

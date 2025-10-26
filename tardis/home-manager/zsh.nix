@@ -25,6 +25,7 @@ in
       nvim = "nix run github:pseudoble/neovim-flake#standard --no-write-lock-file";
       wo="pomodoro 'work'";
       br="pomodoro 'break'";
+      cdb = "builtin cd";
     };
     plugins = [
       {
@@ -37,10 +38,15 @@ in
       enable = true;
       plugins = [ 
         "git" 
-        "z"
         "sudo"
         "dirhistory"
       ];
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd cd" ];
   };
 }

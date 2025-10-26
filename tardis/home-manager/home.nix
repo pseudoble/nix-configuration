@@ -136,7 +136,7 @@
     #python310Full
     #python310Packages.pip
     nodejs_22 
-    yarn
+    yarn-berry
 
     # Dependencies
     xorg.libX11
