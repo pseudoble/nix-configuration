@@ -26,10 +26,11 @@
 - Update zsh.nix to make osup use the flake: `sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos`
 - Currently just uses `sudo nixos-rebuild switch` without flake specification
 
-### 8. Comment out VR-related nix configurations
-- Comment out VR configurations in nixos/vr.nix
-- Comment out VR import in nixos/configuration.nix
-- Document reason for disabling
+### 8. Get Quest 2 VR headset working with Steam
+- Diagnose and fix Quest 2 connectivity with Steam VR on this PC
+- Test wireless streaming (WiVRn) and/or wired connection
+- Verify Steam VR launches and detects headset
+- Test with at least one VR game to confirm functionality
 
 ---
 
