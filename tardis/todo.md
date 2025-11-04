@@ -22,5 +22,14 @@
 - Reinstall sunshine after disabling it
 - Ensure it functions normally without causing system lockups
 
+### 7. Make osup use flake like homeup
+- Update zsh.nix to make osup use the flake: `sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos`
+- Currently just uses `sudo nixos-rebuild switch` without flake specification
+
+### 8. Comment out VR-related nix configurations
+- Comment out VR configurations in nixos/vr.nix
+- Comment out VR import in nixos/configuration.nix
+- Document reason for disabling
+
 ---
 

@@ -21,11 +21,14 @@ in
     shellAliases = {
       ls = "exa -la";
       osup = "sudo nixos-rebuild switch";
-      homeup = "home-manager switch";
+      homeup = "home-manager switch --flake ~/.pseudoble/tardis#cjosephs@nixos";
       nvim = "nix run github:pseudoble/neovim-flake#standard --no-write-lock-file";
       wo="pomodoro 'work'";
       br="pomodoro 'break'";
       cdb = "builtin cd";
+      claude = "yarn dlx @anthropic-ai/claude-code";
+      gemini = "yarn dlx @google/gemini-cli";
+      codex = "yarn dlx @openai/codex";
     };
     plugins = [
       {

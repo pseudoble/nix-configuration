@@ -91,14 +91,11 @@
     enable = true;        # This enables the Avahi daemon
     nssmdns4 = true;       # This enables mDNS for .local name resolution via NSS
     openFirewall = true;  # This will open UDP port 5353 in your firewall if networking.firewall.enable is true
-    # If you want your NixOS machine itself to be discoverable via mDNS, you might also add:
-    # publish = {
-    #   enable = true;
-    #   domain = true;
-    #   hinfo = true;
-    #   userServices = true;
-    #   workstation = true;
-    # };
+    publish = {
+      enable = true;
+      userServices = true;
+      workstation = true;
+    };
   };
 
   xdg.portal.enable = true;
@@ -144,6 +141,10 @@
         destination = "/etc/udev/rules.d/99-vial.rules";
       })
     ];
+
+    extraRules = ''
+      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
+    '';
   };
 
 
@@ -181,6 +182,8 @@
 
     v4l-utils
 
+    opencomposite
+
     # brlaser
 
     libva
@@ -190,6 +193,7 @@
   ];
 
   hardware.xpadneo.enable = true;
+  hardware.uinput.enable = true;
 
   programs.dconf.enable = true;
 
