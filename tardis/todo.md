@@ -56,5 +56,16 @@
 - Test with at least one VR game to confirm functionality
 - **Priority**: LOW
 
----
+### 11. Generate disk and partition usage report
+- Inventory every physical disk and partition; include filesystem type and mountpoints
+- Document current mounts, usage stats, and primary purpose for each volume
+- Note any unmounted partitions or devices that can be repurposed
+- **Priority**: HIGH
 
+### 12. Discuss desktop keyring workflow
+- Review how GNOME keyring and PAM integration work on this setup
+- Decide whether to re-enable keyring support or adopt an alternative secret storage flow
+- Capture documentation/instructions so future agents understand the intended approach
+- **Priority**: MEDIUM
+
+---

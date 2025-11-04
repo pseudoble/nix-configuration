@@ -192,6 +192,7 @@
     flite
     stdenv.cc.cc.lib
   ];
+
   
   home.sessionPath = [ "$HOME/.yarn/bin" ];
   services.picom.enable = true;

@@ -14,6 +14,7 @@ in
     initExtra = ''
       export PATH=$HOME/.local/bin:$PATH
       export PATH=$HOME/.yarn/bin:$PATH
+      export PATH=$HOME/.npm-global/bin:$PATH
 
       [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
       source ${pomodoroScript}
@@ -26,9 +27,9 @@ in
       wo="pomodoro 'work'";
       br="pomodoro 'break'";
       cdb = "builtin cd";
-      claude = "yarn dlx @anthropic-ai/claude-code";
-      gemini = "yarn dlx @google/gemini-cli";
-      codex = "yarn dlx @openai/codex";
+      # claude = "yarn dlx @anthropic-ai/claude-code";
+      # gemini = "yarn dlx @google/gemini-cli";
+      # codex = "yarn dlx @openai/codex";
     };
     plugins = [
       {

@@ -12,7 +12,7 @@
   
   boot.extraModulePackages = [ pkgs.linux-firmware ];# pkgs.linuxPackages_latest.v4l2loopback ];
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ ];
   # security.fsck.auto = false;
 
   # Set initial kernel module settings

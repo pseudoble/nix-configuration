@@ -81,11 +81,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
-  services.gnome.gnome-keyring.enable = true;
-  services.printing = {
-    enable = true;
-    # drivers = [ pkgs.cups-brother-hll2350dw ];
-  };
+  services.gnome.gnome-keyring.enable = false;
+  services.printing.enable = false;
   
   services.avahi = {
     enable = true;        # This enables the Avahi daemon
@@ -98,8 +95,11 @@
     };
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.config.common.default = "*";
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
   services.flatpak.enable = true;
 
   services.ollama = {
@@ -112,26 +112,6 @@
 
     # Use `packages` to define udev rules declaratively
     packages = [
-      # Android udev rules
-      (pkgs.writeTextFile {
-        name = "android-udev-rules";
-        text = ''
-          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0186", MODE="0666", GROUP="plugdev"
-          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", MODE="0666", GROUP="plugdev"
-          SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="plugdev"
-        '';
-        destination = "/etc/udev/rules.d/51-android.rules";
-      })
-
-      # Oculus Quest 2 udev rule
-      (pkgs.writeTextFile {
-        name = "oculus-udev-rule";
-        text = ''
-          SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0183", MODE="0666", GROUP="plugdev"
-        '';
-        destination = "/etc/udev/rules.d/99-oculus.rules";
-      })
-
       # Vial udev rule
       (pkgs.writeTextFile {
         name = "vial-udev-rule";
@@ -154,6 +134,8 @@
   #programs.fish.enable = true;
   programs.zsh.enable = true;
 
+  boot.kernelParams = [ "amd_pstate=disable" ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -175,6 +157,7 @@
     vulkan-tools
     vulkan-headers
     vulkan-loader
+    config.boot.kernelPackages.nvidiaPackages.stable.settings
     
     appimage-run
     home-manager

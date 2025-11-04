@@ -13,11 +13,17 @@ Personal NixOS flake-based system configuration ("tardis") for a gaming/developm
 
 ### System Management
 ```bash
+# Enter dev environment with Nix, home-manager, git
+nix develop
+
+# Evaluate flake outputs and run checks
+nix flake check
+
 # Rebuild NixOS system
-sudo nixos-rebuild switch
+sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos
 # or: osup (zsh alias)
 
-# Rebuild home-manager
+# Rebuild home-manager profile
 home-manager switch --flake ~/.pseudoble/tardis#cjosephs@nixos
 # or: homeup (zsh alias)
 
@@ -35,8 +41,8 @@ nix-collect-garbage --delete-older-than 30d
 - This applies to ALL sudo commands including system rebuilds, package installs, file operations, etc.
 
 ### Shell Aliases
-- `osup` - Rebuild NixOS system
-- `homeup` - Rebuild home-manager
+- `osup` - Wrapper for `sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos` (request user execution)
+- `homeup` - Rebuild home-manager (`home-manager switch --flake ~/.pseudoble/tardis#cjosephs@nixos`)
 - `nvim` - Launch Neovim from external flake (github:pseudoble/neovim-flake#standard)
 - `ls` - Enhanced ls via exa with details
 - `wo` / `br` - Pomodoro work/break timers
@@ -87,6 +93,12 @@ Applied to both NixOS and home-manager for consistency:
 1. **additions** - Custom packages from `./pkgs`
 2. **modifications** - Package overrides/patches (currently empty)
 3. **unstable-packages** - Provides `pkgs.unstable` namespace
+
+## Coding Style and Naming
+- Use two-space indentation in `*.nix` files and prefer alphabetising attributes within a set when reasonable.
+- Group related configuration under a single attribute set; avoid scattering repeated options across files.
+- Filename convention: kebab-case for new modules/packages (e.g., `protonvpn.nix`); attribute and option names follow lowerCamelCase to match nixpkgs style.
+- Add succinct `#` comments for non-obvious behaviour or risky deviations (e.g., VR kernel patches).
 
 ## VR Stack Architecture
 
@@ -193,6 +205,17 @@ This repository uses a structured workflow for managing changes:
 5. **Repeat**: Move to next todo item
 
 This workflow ensures changes are tracked, documented, and safely applied incrementally.
+
+### Testing Routine
+- Always run `nix flake check` after editing any module; treat failures as blockers.
+- For NixOS adjustments, prefer `nixos-rebuild dry-activate --flake ~/.pseudoble/tardis#nixos` to preview activation, or `nixos-rebuild dry-run` when the host is remote.
+- For home-manager tweaks, use `home-manager build --flake ~/.pseudoble/tardis#cjosephs@nixos` to inspect the generated profile under `./result` before switching.
+- For service-heavy changes (graphics, VR, network), note manual verification steps or log paths in `notes.txt` so others can replay the checks.
+
+### Commit and PR Expectations
+- Commit subjects should be concise, imperative, and scoped (e.g., `i3: enable focus-follows-mouse`); explain motivation in the body when context is not obvious.
+- Squash incidental WIP commits before opening a PR or sharing patches.
+- Pull request descriptions (or shared diffs) should list commands run (`nix flake check`, rebuild dry runs, manual tests) and link related issues or todo entries. Include screenshots/log snippets when touching UI or service behaviour to speed up reviews.
 
 ### Adding Packages
 **System-wide**: Add to `nixos/configuration.nix` environment.systemPackages

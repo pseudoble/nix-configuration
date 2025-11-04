@@ -20,7 +20,6 @@
        "input" 
        "video" 
        "render"
-       "plugdev" 
        "adbusers"
     ];
     shell = pkgs.zsh;
@@ -44,4 +43,3 @@
   nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
 
 }
-
