@@ -8,6 +8,7 @@
     ./nushell.nix
     ./obs.nix
     ./mime.nix
+    # ./sunshine.nix
     # ./vr.nix
   ];
 
@@ -32,7 +33,6 @@
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     polkit_gnome
@@ -123,7 +123,10 @@
     networkmanagerapplet
     # gnome.file-roller
     bat
+    jq
+    tree
     eza
+    (python310.withPackages (ps: with ps; [ jsonpickle ]))
     timer
     speechd
     geeqie
@@ -180,6 +183,7 @@
     prismlauncher
     cockatrice  # MTG
     xmage       # MTG
+    # sunshine
 
     # Minecraft
     glfw
