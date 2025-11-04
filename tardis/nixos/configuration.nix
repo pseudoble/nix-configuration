@@ -136,6 +136,11 @@
 
   boot.kernelParams = [ "amd_pstate=disable" ];
 
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

@@ -11,7 +11,7 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
-    initExtra = ''
+    initContent = ''
       export PATH=$HOME/.local/bin:$PATH
       export PATH=$HOME/.yarn/bin:$PATH
       export PATH=$HOME/.npm-global/bin:$PATH
