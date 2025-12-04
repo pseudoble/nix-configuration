@@ -18,7 +18,16 @@
 
     # Specify the NVIDIA driver package.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # Disable GSP firmware (known to cause system crashes/freezes)
+    # See: https://wiki.archlinux.org/title/NVIDIA#GSP_firmware
+    # This addresses Sunshine NVENC restart freeze issues
+    nvidiaSettings = true;
+    forceFullCompositionPipeline = false;
   };
+
+  # Disable NVIDIA GSP firmware to fix system freezes
+  boot.kernelParams = [ "nvidia.NVreg_EnableGpuFirmware=0" ];
 
   hardware.graphics = {
     enable = true;

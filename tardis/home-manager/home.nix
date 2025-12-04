@@ -8,8 +8,7 @@
     ./nushell.nix
     ./obs.nix
     ./mime.nix
-    # ./sunshine.nix
-    # ./vr.nix
+    ./vr.nix
   ];
 
   nixpkgs = {
@@ -83,6 +82,7 @@
     scala-next
     mill
     ripgrep
+    antigravity-fhs
 
     jdk17
     libGL
@@ -121,6 +121,8 @@
     usbutils
     dunst
     networkmanagerapplet
+    xdotool
+    wmctrl
     # gnome.file-roller
     bat
     jq
