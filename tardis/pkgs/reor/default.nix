@@ -5,6 +5,7 @@
 , makeWrapper
 , copyDesktopItems
 , makeDesktopItem
+, bash
 }:
 
 buildNpmPackage rec {

@@ -11,14 +11,14 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./bootloader.nix
-      ./bluetooth.nix
-      ./network.nix
-      ./sound.nix
-      ./users.nix
-      ./x11.nix
-      ./fonts.nix
-      ./vr.nix
+      ../../modules/core/bootloader.nix
+      ../../modules/core/bluetooth.nix
+      ../../modules/core/network.nix
+      ../../modules/core/sound.nix
+      ../../modules/core/users.nix
+      ../../modules/core/x11.nix
+      ../../modules/core/fonts.nix
+      ../../modules/core/vr.nix
   ];
   
   # Allow unfree packages

@@ -1,14 +1,14 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
-    ./alacritty.nix
-    ./zsh.nix
-    ./tmux.nix
-    ./git.nix
-    ./i3.nix
-    ./nushell.nix
-    ./obs.nix
-    ./mime.nix
-    ./vr.nix
+    ../modules/alacritty.nix
+    ../modules/zsh.nix
+    ../modules/tmux.nix
+    ../modules/git.nix
+    ../modules/i3.nix
+    ../modules/nushell.nix
+    ../modules/obs.nix
+    ../modules/mime.nix
+    ../modules/vr.nix
   ];
 
   nixpkgs = {
