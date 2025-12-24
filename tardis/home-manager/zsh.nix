@@ -21,7 +21,7 @@ in
     '';
     shellAliases = {
       ls = "exa -la";
-      osup = "sudo nixos-rebuild switch";
+      osup = "sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos";
       homeup = "home-manager switch --flake ~/.pseudoble/tardis#cjosephs@nixos";
       nvim = "nix run github:pseudoble/neovim-flake#standard --no-write-lock-file";
       wo="pomodoro 'work'";

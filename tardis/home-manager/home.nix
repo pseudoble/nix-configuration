@@ -54,6 +54,7 @@
     discord
     #evolution
     vlc
+    ffmpeg
     system-config-printer
     
     # Development
@@ -66,6 +67,8 @@
     go
     gopls
     # gcc
+    gcc
+    gnumake
     # nodejs
     # coursier
     # dotnet-sdk_7
@@ -128,8 +131,7 @@
     jq
     tree
     eza
-    (python310.withPackages (ps: with ps; [ jsonpickle ]))
-    timer
+    (python313.withPackages (ps: with ps; [ jsonpickle pymupdf pip pillow ]))    timer
     speechd
     geeqie
     feh
@@ -138,8 +140,6 @@
     appimage-run
     filezilla
     audacity
-    #python310Full
-    #python310Packages.pip
     nodejs_22 
     yarn-berry
 
@@ -161,11 +161,13 @@
 
     # Misc
     gnupg
+    opam
     prusa-slicer
     #cura
     flameshot
     gthumb
     remmina
+    tigervnc
     vial
     upscayl
     mob
@@ -193,6 +195,9 @@
     libpulseaudio
     flite
     stdenv.cc.cc.lib
+
+    poppler-utils
+    tesseract
   ];
 
   

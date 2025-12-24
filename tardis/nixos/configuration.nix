@@ -83,6 +83,7 @@
   services.openssh.settings.PermitRootLogin = "no";
   services.gnome.gnome-keyring.enable = false;
   services.printing.enable = false;
+  services.envfs.enable = true;
   
   services.avahi = {
     enable = true;        # This enables the Avahi daemon
@@ -180,7 +181,7 @@
     # #linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
-  hardware.xpadneo.enable = true;
+  # hardware.xone.enable = true; # Disabled; retry later after xpad-noone is updated for newer kernels.
   hardware.uinput.enable = true;
 
   programs.dconf.enable = true;

@@ -32,11 +32,6 @@
 - Ensure it functions normally without causing system lockups
 - **Priority**: MEDIUM
 
-### 6. Make osup use flake like homeup
-- Update zsh.nix to make osup use the flake: `sudo nixos-rebuild switch --flake ~/.pseudoble/tardis#nixos`
-- Currently just uses `sudo nixos-rebuild switch` without flake specification
-- **Priority**: MEDIUM
-
 ### 7. Investigate containers directory storage usage (159GB)
 - Investigate why ~/.local/share/containers is consuming 159GB
 - Identify what Docker/Podman images, volumes, or data is stored
@@ -67,5 +62,10 @@
 - Decide whether to re-enable keyring support or adopt an alternative secret storage flow
 - Capture documentation/instructions so future agents understand the intended approach
 - **Priority**: MEDIUM
+
+### 13. Retry Xbox controller driver once xpad-noone is updated
+- Re-enable hardware.xone after upstream fixes for Linux 6.18 build breakages
+- Confirm xpad-noone builds cleanly on the current kernel
+- **Priority**: LOW
 
 ---
